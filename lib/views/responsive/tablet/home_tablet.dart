@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/education.dart';
 import '../../widgets/introduction.dart';
 
 class HomeTablet extends StatelessWidget {
@@ -10,7 +11,10 @@ class HomeTablet extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [Introduction()],
+        children: const [
+          Introduction(),
+          Education(),
+        ],
       ),
     );
   }

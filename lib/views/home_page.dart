@@ -15,10 +15,15 @@ class HomePage extends StatelessWidget {
           image: DecorationImage(
               image: AssetImage('assets/background.jpg'), fit: BoxFit.fill),
         ),
-        child: const ResponsiveLayout(
-          mobile: HomeMobile(),
-          tablet: HomeTablet(),
-          desktop: HomeDesktop(),
+        child: const Center(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: ResponsiveLayout(
+              mobile: HomeMobile(),
+              tablet: HomeTablet(),
+              desktop: HomeDesktop(),
+            ),
+          ),
         ),
       ),
     );
