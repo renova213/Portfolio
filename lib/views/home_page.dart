@@ -9,21 +9,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/background.jpg'), fit: BoxFit.fill),
-        ),
-        child: const Center(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: ResponsiveLayout(
-              mobile: HomeMobile(),
-              tablet: HomeTablet(),
-              desktop: HomeDesktop(),
-            ),
-          ),
+    return const Scaffold(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: ResponsiveLayout(
+          mobile: HomeMobile(),
+          tablet: HomeTablet(),
+          desktop: HomeDesktop(),
         ),
       ),
     );

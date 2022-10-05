@@ -13,7 +13,7 @@ class ResponsiveLayout extends StatelessWidget {
   }) : super(key: key);
 
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width <= 550;
+      MediaQuery.of(context).size.width <= 450;
 
   static bool isTablet(BuildContext context) =>
       MediaQuery.of(context).size.width < 1024;
