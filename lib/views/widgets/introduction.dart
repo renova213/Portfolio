@@ -117,6 +117,25 @@ class Introduction extends StatelessWidget {
             )
           ],
         ),
+        const SizedBox(width: 8),
+        Column(
+          children: [
+            SizedBox(
+              width: 50,
+              height: 50,
+              child: IconButton(
+                onPressed: () =>
+                    _launchURL('https://www.facebook.com/rizcorenova'),
+                icon: Image.asset('fb.png',
+                    color: Colors.greenAccent, width: 50, height: 50),
+              ),
+            ),
+            Text(
+              "Linkedin",
+              style: bodyText2.copyWith(color: Colors.greenAccent),
+            )
+          ],
+        ),
       ],
     );
   }

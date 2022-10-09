@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/constants.dart';
+import 'package:portfolio/views/models/email_model.dart';
+import 'package:portfolio/views/providers/email_provider.dart';
 import 'package:portfolio/views/responsive_layout.dart';
+import 'package:provider/provider.dart';
 
 class ContactMe extends StatefulWidget {
   const ContactMe({super.key});
@@ -344,66 +347,74 @@ class _ContactMeState extends State<ContactMe> {
                 ],
               ),
             )
-          : ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll<Color>(
-                  Colors.redAccent.withOpacity(0.2),
-                ),
-                shape: MaterialStatePropertyAll<OutlinedBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+          : Consumer<EmailProvider>(
+              builder: (context, notifier, _) => ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll<Color>(
+                    Colors.redAccent.withOpacity(0.2),
+                  ),
+                  shape: MaterialStatePropertyAll<OutlinedBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                 ),
-              ),
-              onPressed: () {
-                if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                    .hasMatch(_emailController.text)) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      duration: const Duration(milliseconds: 700),
-                      content: Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Text(
-                          "Email Tidak Valid",
-                          style: bodyText1.copyWith(color: Colors.white),
+                onPressed: () {
+                  if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                      .hasMatch(_emailController.text)) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        duration: const Duration(milliseconds: 700),
+                        content: Padding(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: Text(
+                            "Email Tidak Valid",
+                            style: bodyText1.copyWith(color: Colors.white),
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      duration: const Duration(milliseconds: 700),
-                      content: Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Text(
-                          "Berhasil Mengirim Pesan",
-                          style: bodyText1.copyWith(color: Colors.white),
+                    );
+                  } else {
+                    notifier.sendEmail(
+                      EmailModel(
+                          email: _emailController.text,
+                          message: _messageController.text,
+                          name: _nameController.text),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        duration: const Duration(milliseconds: 700),
+                        content: Padding(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: Text(
+                            "Berhasil Mengirim Pesan",
+                            style: bodyText1.copyWith(color: Colors.white),
+                          ),
                         ),
                       ),
+                    );
+                    setState(() {
+                      _nameController.clear();
+                      _messageController.clear();
+                      _emailController.clear();
+                      _name = '';
+                      _message = '';
+                      _email = '';
+                    });
+                  }
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Send",
+                      style: bodyText2.copyWith(color: Colors.white),
                     ),
-                  );
-                  setState(() {
-                    _nameController.clear();
-                    _messageController.clear();
-                    _emailController.clear();
-                    _name = '';
-                    _message = '';
-                    _email = '';
-                  });
-                }
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Send",
-                    style: bodyText2.copyWith(color: Colors.white),
-                  ),
-                  const SizedBox(width: 8),
-                  const Icon(Icons.send, size: 20),
-                ],
+                    const SizedBox(width: 8),
+                    const Icon(Icons.send, size: 20),
+                  ],
+                ),
               ),
             ),
     );
