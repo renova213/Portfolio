@@ -3,8 +3,8 @@ import 'package:portfolio/views/widgets/about_me.dart';
 import 'package:portfolio/views/widgets/contact_me.dart';
 import 'package:portfolio/views/widgets/projects.dart';
 
-import '../../widgets/introduction.dart';
-import '../../widgets/skills.dart';
+import '../widgets/introduction.dart';
+import '../widgets/skills.dart';
 
 class HomeDesktop extends StatefulWidget {
   const HomeDesktop({super.key});

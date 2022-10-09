@@ -17,7 +17,7 @@ class Introduction extends StatelessWidget {
         image: DecorationImage(
             colorFilter: ColorFilter.mode(
                 Colors.white.withOpacity(0.5), BlendMode.color),
-            image: const AssetImage('background.jpg'),
+            image: const AssetImage('assets/background.jpg'),
             fit: BoxFit.cover),
       ),
       height: heightBody,
@@ -63,7 +63,7 @@ class Introduction extends StatelessWidget {
                 ),
                 onPressed: () async {
                   await Scrollable.ensureVisible(dataKey.currentContext!,
-                      duration: const Duration(seconds: 1),
+                      duration: const Duration(milliseconds: 500),
                       curve: Curves.easeOut);
                 },
                 child: Text(
@@ -88,7 +88,7 @@ class Introduction extends StatelessWidget {
               height: 50,
               child: IconButton(
                 onPressed: () => _launchURL('https://github.com/renova213/'),
-                icon: SvgPicture.asset('github.svg',
+                icon: SvgPicture.asset('assets/github.svg',
                     color: Colors.greenAccent, width: 50, height: 50),
               ),
             ),
@@ -107,7 +107,7 @@ class Introduction extends StatelessWidget {
               child: IconButton(
                 onPressed: () => _launchURL(
                     'https://www.linkedin.com/in/rizco-renova-490059240/'),
-                icon: SvgPicture.asset('linkedin.svg',
+                icon: SvgPicture.asset('assets/linkedin.svg',
                     color: Colors.greenAccent, width: 50, height: 50),
               ),
             ),

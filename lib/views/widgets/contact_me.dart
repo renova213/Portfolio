@@ -28,22 +28,26 @@ class _ContactMeState extends State<ContactMe> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Container(
       color: secondColor,
       width: MediaQuery.of(context).size.width,
       child: Center(
-        child: _desktopBody(context),
+        child: ResponsiveLayout(
+          mobile: _body(width: width * 0.75, context: context),
+          tablet: _body(width: width * 0.6, context: context),
+          desktop: _body(width: width * 0.5, context: context),
+        ),
       ),
     );
   }
 
-  Padding _desktopBody(context) {
+  Padding _body({required double width, required context}) {
     return Padding(
       padding: const EdgeInsets.only(top: 16),
       child: SizedBox(
-        width: ResponsiveLayout.isDesktop(context)
-            ? MediaQuery.of(context).size.width * 0.5
-            : MediaQuery.of(context).size.width * 0.6,
+        width: width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -61,7 +65,11 @@ class _ContactMeState extends State<ContactMe> {
               ),
             ),
             const SizedBox(height: 16),
-            _formField(),
+            ResponsiveLayout(
+              mobile: _formFieldMobile(width: width * 1),
+              tablet: _formField(width: width * 0.46),
+              desktop: _formField(width: width * 0.46),
+            ),
             const SizedBox(height: 16),
             _sendbutton(),
             const SizedBox(height: 32),
@@ -71,7 +79,7 @@ class _ContactMeState extends State<ContactMe> {
     );
   }
 
-  Column _formField() {
+  Column _formField({required double width}) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -79,9 +87,7 @@ class _ContactMeState extends State<ContactMe> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              width: ResponsiveLayout.isDesktop(context)
-                  ? MediaQuery.of(context).size.width * 0.24
-                  : MediaQuery.of(context).size.width * 0.28,
+              width: width,
               height: 50,
               child: TextField(
                 onChanged: (value) => setState(() => _name = value),
@@ -118,9 +124,7 @@ class _ContactMeState extends State<ContactMe> {
             ),
             const SizedBox(width: 16),
             SizedBox(
-              width: ResponsiveLayout.isDesktop(context)
-                  ? MediaQuery.of(context).size.width * 0.24
-                  : MediaQuery.of(context).size.width * 0.28,
+              width: width,
               height: 50,
               child: TextField(
                 onChanged: (value) => setState(() => _email = value),
@@ -195,11 +199,124 @@ class _ContactMeState extends State<ContactMe> {
     );
   }
 
+  Column _formFieldMobile({required double width}) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(
+          width: width,
+          height: 50,
+          child: TextField(
+            onChanged: (value) => setState(() => _name = value),
+            controller: _nameController,
+            textInputAction: TextInputAction.next,
+            style: bodyText2.copyWith(color: Colors.white),
+            decoration: InputDecoration(
+              hintStyle: bodyText2.copyWith(color: Colors.white),
+              hintText: "Your Name",
+              fillColor: Colors.redAccent.withOpacity(0.2),
+              filled: true,
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        SizedBox(
+          width: width,
+          height: 50,
+          child: TextField(
+            onChanged: (value) => setState(() => _email = value),
+            controller: _emailController,
+            textInputAction: TextInputAction.next,
+            style: bodyText2.copyWith(color: Colors.white),
+            decoration: InputDecoration(
+              hintStyle: bodyText2.copyWith(color: Colors.white),
+              hintText: "Your E-Mail",
+              fillColor: Colors.redAccent.withOpacity(0.2),
+              filled: true,
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        TextField(
+          onChanged: (value) => setState(() => _message = value),
+          textInputAction: TextInputAction.next,
+          maxLines: 10,
+          style: bodyText2.copyWith(color: Colors.white),
+          controller: _messageController,
+          decoration: InputDecoration(
+            hintStyle: bodyText2.copyWith(color: Colors.white),
+            hintText: "Your Message Here ...",
+            fillColor: Colors.redAccent.withOpacity(0.2),
+            filled: true,
+            border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   SizedBox _sendbutton() {
     return SizedBox(
-      width: ResponsiveLayout.isDesktop(context)
-          ? MediaQuery.of(context).size.width * 0.5
-          : MediaQuery.of(context).size.width * 0.6,
+      width: MediaQuery.of(context).size.width * 1,
       height: 50,
       child: _name.isEmpty || _email.isEmpty || _message.isEmpty
           ? ElevatedButton(
