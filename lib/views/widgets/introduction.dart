@@ -126,7 +126,7 @@ class Introduction extends StatelessWidget {
               child: IconButton(
                 onPressed: () =>
                     _launchURL('https://www.facebook.com/rizcorenova'),
-                icon: Image.asset('fb.png',
+                icon: Image.asset('assets/fb.png',
                     color: Colors.greenAccent, width: 50, height: 50),
               ),
             ),

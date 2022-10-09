@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/constants.dart';
@@ -57,7 +58,7 @@ class Projects extends StatelessWidget {
         if (snapshot.hasData) {
           return ListView.separated(
             shrinkWrap: true,
-            scrollDirection: Axis.vertical,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: snapshot.data!.docs.length,
             separatorBuilder: (context, index) => const SizedBox(
               height: 16,
@@ -143,7 +144,15 @@ class Projects extends StatelessWidget {
                     width: ResponsiveLayout.isDesktop(context)
                         ? width * 0.15
                         : width * 0.2,
-                    child: Image.network(data['urlImage'], fit: BoxFit.fill),
+                    child: CarouselSlider(
+                      items: (data['urlImage'] as List)
+                          .map(
+                            (item) => Image.network(item, fit: BoxFit.fill),
+                          )
+                          .toList(),
+                      options: CarouselOptions(
+                          viewportFraction: 1.0, enlargeCenterPage: false),
+                    ),
                   ),
                 ],
               );
@@ -168,6 +177,7 @@ class Projects extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return ListView.separated(
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: snapshot.data.docs.length,
             separatorBuilder: (context, index) => const SizedBox(
@@ -188,7 +198,15 @@ class Projects extends StatelessWidget {
                   SizedBox(
                     width: 200,
                     height: 300,
-                    child: Image.network(data['urlImage'], fit: BoxFit.fill),
+                    child: CarouselSlider(
+                      items: (data['urlImage'] as List)
+                          .map(
+                            (item) => Image.network(item, fit: BoxFit.fill),
+                          )
+                          .toList(),
+                      options: CarouselOptions(
+                          viewportFraction: 1.0, enlargeCenterPage: false),
+                    ),
                   ),
                   const SizedBox(height: 16),
                   Column(
