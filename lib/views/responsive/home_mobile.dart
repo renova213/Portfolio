@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/views/widgets/about_me.dart';
 
-import '../../widgets/contact_me.dart';
-import '../../widgets/introduction.dart';
-import '../../widgets/projects.dart';
-import '../../widgets/skills.dart';
+import '../widgets/contact_me.dart';
+import '../widgets/introduction.dart';
+import '../widgets/projects.dart';
+import '../widgets/skills.dart';
 
 class HomeMobile extends StatelessWidget {
   const HomeMobile({super.key});

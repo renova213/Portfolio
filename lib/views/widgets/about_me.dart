@@ -17,18 +17,22 @@ class AboutMe extends StatelessWidget {
         mobile: _bodyMobile(
             widthBody: width,
             heightBody: height,
-            widthImage: width * 0.3,
-            heightImage: height * 0.3),
+            widthImage: 150,
+            heightImage: 200),
         tablet: _body(
             widthBody: width,
             heightBody: height * 0.7,
             width: width,
-            height: height),
+            height: height,
+            widthImage: 200,
+            heightImage: 250),
         desktop: _body(
             widthBody: width,
             heightBody: height * 0.7,
             width: width,
-            height: height),
+            height: height,
+            widthImage: 200,
+            heightImage: 250),
       ),
     );
   }
@@ -37,7 +41,9 @@ class AboutMe extends StatelessWidget {
       {required double widthBody,
       required double heightBody,
       required double width,
-      required double height}) {
+      required double height,
+      required double widthImage,
+      required double heightImage}) {
     return Container(
       width: widthBody,
       height: heightBody,
@@ -61,14 +67,15 @@ class AboutMe extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                      width: width * 0.2,
-                      height: height * 0.4,
+                      width: widthImage,
+                      height: heightImage,
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(
-                          Radius.circular(50),
+                          Radius.circular(15),
                         ),
                         image: DecorationImage(
-                            image: AssetImage('photo.jpg'), fit: BoxFit.fill),
+                            image: AssetImage('assets/photo.jpg'),
+                            fit: BoxFit.fill),
                       ),
                     ),
                     SizedBox(width: width * 0.1),
@@ -123,10 +130,10 @@ class AboutMe extends StatelessWidget {
                 height: heightImage,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(
-                    Radius.circular(50),
+                    Radius.circular(15),
                   ),
                   image: DecorationImage(
-                      image: AssetImage('photo.jpg'), fit: BoxFit.fill),
+                      image: AssetImage('assets/photo.jpg'), fit: BoxFit.fill),
                 ),
               ),
               const SizedBox(height: 16),
