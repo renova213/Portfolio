@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/views/contact_section/mobile_contact_section.dart';
+import 'package:portfolio/views/projects/mobile_projects.dart';
 import 'package:portfolio/views/widgets/about_me.dart';
 
-import '../widgets/contact_me.dart';
-import '../widgets/introduction.dart';
-import '../widgets/projects.dart';
-import '../widgets/skills.dart';
+import '../views/widgets/introduction.dart';
+import '../views/widgets/skills.dart';
 
 class HomeMobile extends StatelessWidget {
   const HomeMobile({super.key});
@@ -18,8 +18,8 @@ class HomeMobile extends StatelessWidget {
         Introduction(dataKey: dataKey),
         AboutMe(key: dataKey),
         const Skills(),
-        const Projects(),
-        const ContactMe(),
+        const MobileProjects(),
+        const MobileContactSection(),
       ],
     );
   }

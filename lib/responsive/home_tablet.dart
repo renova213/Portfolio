@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/views/contact_section/contact_section.dart';
+import 'package:portfolio/views/projects/tablet_projects.dart';
 
-import '../widgets/about_me.dart';
-import '../widgets/contact_me.dart';
-import '../widgets/introduction.dart';
-import '../widgets/projects.dart';
-import '../widgets/skills.dart';
+import '../views/widgets/about_me.dart';
+import '../views/widgets/introduction.dart';
+import '../views/widgets/skills.dart';
 
 class HomeTablet extends StatelessWidget {
   const HomeTablet({super.key});
@@ -21,8 +21,8 @@ class HomeTablet extends StatelessWidget {
           ),
           AboutMe(key: dataKey),
           const Skills(),
-          const Projects(),
-          const ContactMe(),
+          const TabletProjects(),
+          const ContactSection(),
         ],
       ),
     );
