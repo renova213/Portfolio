@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/common/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -18,7 +17,7 @@ class Introduction extends StatelessWidget {
             colorFilter: ColorFilter.mode(
                 Colors.white.withOpacity(0.5), BlendMode.color),
             image: const AssetImage('assets/background.jpg'),
-            fit: BoxFit.cover),
+            fit: BoxFit.fill),
       ),
       height: heightBody,
       child: Padding(
@@ -42,35 +41,28 @@ class Introduction extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 4,
-              ),
-              Text(
-                "Junior Flutter Developer",
-                style: headline4.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              _socialMedia(),
+              const SizedBox(height: 4),
+              Text("I'm Into Mobile App Development",
+                  style: headline4.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.bold)),
               const SizedBox(height: 8),
-              OutlinedButton(
-                style: const ButtonStyle(
-                  side: MaterialStatePropertyAll<BorderSide>(
-                    BorderSide(color: Colors.greenAccent),
-                  ),
-                ),
-                onPressed: () async {
-                  await Scrollable.ensureVisible(dataKey.currentContext!,
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.easeOut);
-                },
-                child: Text(
-                  "Know me more",
-                  style: bodyText2.copyWith(color: Colors.greenAccent),
+              RichText(
+                text: TextSpan(
+                  style: headline6.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                  children: [
+                    const TextSpan(text: 'Get to know me more on my '),
+                    TextSpan(
+                      text: 'social media :',
+                      style: headline6.copyWith(
+                        color: Colors.greenAccent,
+                      ),
+                    ),
+                  ],
                 ),
               ),
+              const SizedBox(height: 8),
+              _socialMedia(),
             ],
           ),
         ),
@@ -81,62 +73,30 @@ class Introduction extends StatelessWidget {
   Row _socialMedia() {
     return Row(
       children: [
-        Column(
-          children: [
-            SizedBox(
-              width: 50,
-              height: 50,
-              child: IconButton(
-                onPressed: () => _launchURL('https://github.com/renova213/'),
-                icon: SvgPicture.asset('assets/github.svg',
-                    color: Colors.greenAccent, width: 50, height: 50),
-              ),
-            ),
-            Text(
-              "Github",
-              style: bodyText2.copyWith(color: Colors.greenAccent),
-            )
-          ],
-        ),
+        const Icon(Icons.arrow_right, color: Colors.greenAccent),
+        _socialMediaItem(url: 'https://github.com/renova213/', title: "Github"),
         const SizedBox(width: 8),
-        Column(
-          children: [
-            SizedBox(
-              width: 50,
-              height: 50,
-              child: IconButton(
-                onPressed: () => _launchURL(
-                    'https://www.linkedin.com/in/rizco-renova-490059240/'),
-                icon: SvgPicture.asset('assets/linkedin.svg',
-                    color: Colors.greenAccent, width: 50, height: 50),
-              ),
-            ),
-            Text(
-              "Linkedin",
-              style: bodyText2.copyWith(color: Colors.greenAccent),
-            )
-          ],
-        ),
-        const SizedBox(width: 8),
-        Column(
-          children: [
-            SizedBox(
-              width: 50,
-              height: 50,
-              child: IconButton(
-                onPressed: () =>
-                    _launchURL('https://www.facebook.com/rizcorenova'),
-                icon: Image.asset('assets/fb.png',
-                    color: Colors.greenAccent, width: 50, height: 50),
-              ),
-            ),
-            Text(
-              "Linkedin",
-              style: bodyText2.copyWith(color: Colors.greenAccent),
-            )
-          ],
-        ),
+        _socialMediaItem(
+            url: 'https://www.linkedin.com/in/rizco-renova-490059240/',
+            title: "Linkedin")
       ],
+    );
+  }
+
+  InkWell _socialMediaItem({required String url, required String title}) {
+    return InkWell(
+      onTap: () => _launchURL(url),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+            color: Colors.transparent,
+            border: Border.all(color: Colors.greenAccent),
+            borderRadius: BorderRadius.circular(5)),
+        child: Text(
+          title,
+          style: bodyText2.copyWith(color: Colors.greenAccent),
+        ),
+      ),
     );
   }
 

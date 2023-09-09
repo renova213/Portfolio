@@ -14,21 +14,16 @@ class AboutMe extends StatelessWidget {
     return ClipPath(
       clipper: Clipper(),
       child: ResponsiveLayout(
-        mobile: _bodyMobile(
-            widthBody: width,
-            heightBody: height,
-            widthImage: 150,
-            heightImage: 200),
+        mobile:
+            _bodyMobile(widthBody: width, widthImage: 150, heightImage: 200),
         tablet: _body(
             widthBody: width,
-            heightBody: height * 0.7,
             width: width,
             height: height,
             widthImage: 200,
             heightImage: 250),
         desktop: _body(
             widthBody: width,
-            heightBody: height * 0.7,
             width: width,
             height: height,
             widthImage: 200,
@@ -39,14 +34,13 @@ class AboutMe extends StatelessWidget {
 
   Container _body(
       {required double widthBody,
-      required double heightBody,
       required double width,
       required double height,
       required double widthImage,
       required double heightImage}) {
     return Container(
+      padding: const EdgeInsets.only(bottom: 64, left: 32, right: 32),
       width: widthBody,
-      height: heightBody,
       color: secondColor,
       child: Padding(
         padding: const EdgeInsets.only(top: 16),
@@ -59,38 +53,16 @@ class AboutMe extends StatelessWidget {
                 style: headline5.copyWith(
                     color: Colors.white, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(
-                height: 32,
-              ),
-              SizedBox(
-                width: width * 0.7,
-                child: Row(
-                  children: [
-                    Container(
-                      width: widthImage,
-                      height: heightImage,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(15),
-                        ),
-                        image: DecorationImage(
-                            image: AssetImage('assets/photo.jpg'),
-                            fit: BoxFit.fill),
-                      ),
+              const SizedBox(height: 32),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      "Experienced in collaborating with cross-functional teams to implement new features with Flutter or Swift. Proven ability to communicate effectively with designers, product managers, and other developers to ensure alignment on project goals. Adept at troubleshooting issues to deliver quality applications on schedule",
+                      style: bodyText1.copyWith(color: Colors.white),
                     ),
-                    SizedBox(width: width * 0.1),
-                    Expanded(
-                      child: Text(
-                        '''Student at University Bina Sarana Informatika. I'm passionate in developing mobile apps using Flutter and dart as programming language. Always keep learning and exploring this framework.
-          
-          I always felt curious about technology, and i believe that digital transformation will be the key to facing any future challenges.
-          
-                          ''',
-                        style: bodyText1.copyWith(color: Colors.white),
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                ],
               )
             ],
           ),
@@ -101,54 +73,30 @@ class AboutMe extends StatelessWidget {
 
   Container _bodyMobile(
       {required double widthBody,
-      required double heightBody,
       required double widthImage,
       required double heightImage}) {
     return Container(
       width: widthBody,
-      height: heightBody,
       color: secondColor,
+      padding: const EdgeInsets.only(bottom: 128),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 32),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 16,
-              ),
-              Text(
-                "ABOUT ME",
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 16,
+            ),
+            Text("ABOUT ME",
                 style: headline5.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Container(
-                width: widthImage,
-                height: heightImage,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(15),
-                  ),
-                  image: DecorationImage(
-                      image: AssetImage('assets/photo.jpg'), fit: BoxFit.fill),
-                ),
-              ),
-              const SizedBox(height: 16),
-              SingleChildScrollView(
-                child: Text(
-                  '''Student at University Bina Sarana Informatika. I'm passionate in developing mobile apps using Flutter and dart as programming language. Always keep learning and exploring this framework.
-          
-I always felt curious about technology, and i believe that digital transformation will be the key to facing any future challenges.
-          
-                          ''',
-                  style: bodyText1.copyWith(color: Colors.white),
-                ),
-              ),
-            ],
-          ),
+                    color: Colors.white, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 16),
+            Text(
+              "Experienced in collaborating with cross-functional teams to implement new features with Flutter or Swift. Proven ability to communicate effectively with designers, product managers, and other developers to ensure alignment on project goals. Adept at troubleshooting issues to deliver quality applications on schedule",
+              style: bodyText1.copyWith(color: Colors.white),
+              textAlign: TextAlign.justify,
+            ),
+          ],
         ),
       ),
     );

@@ -28,7 +28,8 @@ class Skills extends StatelessWidget {
                   'assets/react.svg',
                   width: 30,
                   height: 30,
-                  color: Colors.black,
+                  colorFilter:
+                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
                 ),
                 const SizedBox(width: 8),
                 Text(

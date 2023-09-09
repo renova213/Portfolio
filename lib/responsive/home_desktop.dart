@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/views/contact_section/contact_section.dart';
+import 'package:portfolio/views/projects/desktop_projects.dart';
 import 'package:portfolio/views/widgets/about_me.dart';
-import 'package:portfolio/views/widgets/contact_me.dart';
-import 'package:portfolio/views/widgets/projects.dart';
 
-import '../widgets/introduction.dart';
-import '../widgets/skills.dart';
+import '../views/widgets/introduction.dart';
+import '../views/widgets/skills.dart';
 
 class HomeDesktop extends StatefulWidget {
   const HomeDesktop({super.key});
@@ -25,8 +25,8 @@ class _HomeDesktopState extends State<HomeDesktop> {
         Introduction(dataKey: dataKey),
         AboutMe(key: dataKey),
         const Skills(),
-        const Projects(),
-        const ContactMe(),
+        const DesktopProjects(),
+        const ContactSection(),
       ],
     );
   }
