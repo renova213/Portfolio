@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/constants.dart';
@@ -60,7 +61,7 @@ class _DesktopProjectContainerState extends State<DesktopProjectContainer> {
                           width: width * 0.1,
                           child: OutlinedButton(
                             style: const ButtonStyle(
-                              side: MaterialStatePropertyAll<BorderSide>(
+                              side: WidgetStatePropertyAll<BorderSide>(
                                 BorderSide(color: secondColor, width: 2),
                               ),
                             ),
@@ -112,8 +113,21 @@ class _DesktopProjectContainerState extends State<DesktopProjectContainer> {
                   items: (widget.data['urlImage'] as List)
                       .map(
                         (item) => ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.network(item, fit: BoxFit.fill)),
+                          borderRadius: BorderRadius.circular(16),
+                          child: CachedNetworkImage(
+                              imageUrl: item,
+                              errorWidget: (context, url, error) {
+                                return const Center(
+                                  child: Icon(Icons.error, color: Colors.red),
+                                );
+                              },
+                              placeholder: (context, url) {
+                                return Center(
+                                    child: CircularProgressIndicator(
+                                        color: secondColor));
+                              },
+                              fit: BoxFit.fill),
+                        ),
                       )
                       .toList(),
                   options: CarouselOptions(
@@ -126,7 +140,7 @@ class _DesktopProjectContainerState extends State<DesktopProjectContainer> {
                       enlargeCenterPage: false),
                 ),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 8),
               _dotIndex(
                   dataLength: (widget.data['urlImage'] as List).length,
                   currentIndex: currentCarouselIndex)

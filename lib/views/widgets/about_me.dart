@@ -58,7 +58,7 @@ class AboutMe extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      "Experienced in collaborating with cross-functional teams to implement new features with Flutter or Swift. Proven ability to communicate effectively with designers, product managers, and other developers to ensure alignment on project goals. Adept at troubleshooting issues to deliver quality applications on schedule",
+                      "Rizco Renova is a Bachelor’s Degree in Information Technology from University Bina Sarana Informatika. He has 1 year of experience as an iOS Developer in an IT consulting company. He is experienced in collaborating with cross-functional teams to implement new features using Swift or Flutter and adept at troubleshooting issues to deliver quality applications on schedule",
                       style: bodyText1.copyWith(color: Colors.white),
                     ),
                   ),

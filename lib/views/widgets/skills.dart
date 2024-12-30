@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -60,8 +61,19 @@ class Skills extends StatelessWidget {
                               SizedBox(
                                 width: 50,
                                 height: 50,
-                                child: Image.network(
-                                  data['urlImage'],
+                                child: CachedNetworkImage(
+                                  imageUrl: data["urlImage"],
+                                  errorWidget: (context, url, error) {
+                                    return const Center(
+                                      child:
+                                          Icon(Icons.error, color: Colors.red),
+                                    );
+                                  },
+                                  placeholder: (context, url) {
+                                    return Center(
+                                        child: CircularProgressIndicator(
+                                            color: secondColor));
+                                  },
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -79,7 +91,7 @@ class Skills extends StatelessWidget {
                     );
                   } else {
                     return const Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator(color: secondColor),
                     );
                   }
                 },
