@@ -16,10 +16,6 @@ export default defineConfig({
         ]
       : []),
   ],
-  server: {
-    host: "0.0.0.0",
-    port: 5173,
-  },
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
@@ -29,7 +25,13 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist"),
+    outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+  },
+  server: {
+    fs: {
+      strict: true,
+      deny: ["**/.*"],
+    },
   },
 });

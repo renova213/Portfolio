@@ -1,159 +1,203 @@
-export type Skill = {
-  name: string;
-  category: 'mobile' | 'frontend' | 'backend' | 'other';
-};
-
-export type Project = {
+export interface Project {
+  id: string;
   title: string;
   description: string;
-  longDescription?: string;
-  platform: string;
+  fullDescription: string;
+  image: string;
+  images: string[];
+  category: "web" | "mobile" | "design";
   technologies: string[];
-  features?: string[];
-  screenshotUrl?: string;
-  year?: string;
-  role?: string;
+  features: string[];
+  challenges: string[];
+  duration: string;
+  role: string;
   links: {
-    demo?: string;
+    live?: string;
     github?: string;
-    appStore?: string;
-    playStore?: string;
-    caseStudy?: string;
-    website?: string;
+    behance?: string;
   };
-};
+}
 
-export type ContactLink = {
-  type: 'email' | 'linkedin' | 'github' | 'twitter';
-  label: string;
-  url: string;
-};
-
-export type PortfolioData = {
+export interface Skill {
   name: string;
-  title: string;
-  about: {
-    summary: string[];
-    education: string[];
-  };
-  skills: {
-    mobile: string[];
-    frontend: string[];
-    backend: string[];
-    other: string[];
-  };
-  projects: Project[];
-  contact: ContactLink[];
-};
+  percentage: number;
+}
 
-export const portfolioData: PortfolioData = {
-  name: "Mobile Developer",
-  title: "Mobile Developer",
-  about: {
-    summary: [
-      "I'm a passionate mobile developer with expertise in creating intuitive and responsive applications. With 5+ years of experience, I specialize in React Native, Swift, and Flutter development.",
-      "My journey in programming began with web development, but I quickly found my passion in creating mobile experiences that users love.",
-      "When I'm not coding, you can find me hiking, reading sci-fi novels, or experimenting with new tech."
+export interface SocialLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+export const projects: Project[] = [
+  {
+    id: "1",
+    title: "HonkaiAssistance",
+    description:
+      "HonkaiAssistance is a game companion app to help you understand more about honkai impact 3.",
+    fullDescription:
+      "HonkaiAssistance is a game companion app to help you understand more about honkai impact 3. It provides detailed information about characters, weapons, and battlesuits, along with a user-friendly interface for easy navigation. The app includes features like character builds, weapon stats, and battle strategies to enhance the gaming experience.",
+    image:
+      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/aGFsYW1hbl91dGFtYV9paHJzZjA=/preview",
+    images: [
+      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/aGFsYW1hbl91dGFtYV9paHJzZjA=/preview",
+      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/dGllcl9saXN0X3o2M2oyNA==/preview",
+      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/aW5mb3JtYXNpX3N0aWdtYXRhX2Z0Z292Yg==/preview",
+      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/bWVudV9wYW5kdWFuX25wY3FjMg==/preview",
+      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570529/aW5mb3JtYXNpX2thcmFrdGVyX2o0MWp6ZQ==/preview",
+      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/aW5mb3JtYXNpX2VsZl96NnRuZHQ=/preview",
     ],
-    education: [
-      "B.S. Computer Science, Tech University (2018)",
-      "Mobile Development Certification, Apple Developer Academy (2019)"
-    ]
+    category: "mobile",
+    technologies: ["Flutter", "Dart", "Firebase", "Figma", "VSCode"],
+    features: [
+      "List of redeem code",
+      "List of character",
+      "Detail Character",
+      "Tier list character",
+      "Guide info",
+    ],
+    challenges: [
+      "Designing an intuitive and visually appealing user interface that effectively presents complex game data (character stats, weapon synergies, battle strategies) in an easily digestible format.",
+      "Optimizing app performance and resource usage, especially for image heavy content and detailed data sets, to ensure a smooth user experience across a range of mobile devices.",
+      "Handling dynamic content, such as redeem codes, which often have limited availability or specific redemption requirements, and ensuring timely updates and notifications to users.",
+    ],
+    duration: "2 weeks",
+    role: "Flutter Developer",
+    links: {
+      live: "https://drive.usercontent.google.com/download?id=1gZuJeEvEgsuOzGMbOO1PnZzVGmj0L4oS&export=download&authuser=0&confirm=t&uuid=afca3ed3-0895-4839-99fd-b78a09e1da61&at=APZUnTU1FIyWWCjF9DrrFZojzEr-:1694255056278",
+      github: "https://github.com/renova213/honkai_assistance",
+    },
   },
-  skills: {
-    mobile: ["React Native", "Swift", "Flutter", "Kotlin", "Expo"],
-    frontend: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "CSS/SASS"],
-    backend: ["Firebase", "Node.js", "Git", "CI/CD", "AWS"],
-    other: ["UI/UX Design Principles", "App Store Optimization", "Performance Optimization", "Responsive Design", "Agile Methodology"]
+  {
+    id: "2",
+    title: "DAL",
+    description:
+      "Application for keeping track of your favorite anime and manga series.",
+    fullDescription:
+      "Application for keeping track of your favorite anime and manga series. Organize and update your daily anime watching or manga reading schedule, and explore upcoming release.",
+    image:
+      "https://phinconacademy.com/front/assets/img/1715155057-1-subkonten.png",
+    images: [
+      "https://phinconacademy.com/front/assets/img/1715155057-1-subkonten.png",
+      "https://phinconacademy.com/front/assets/img/1715155057-1-subkonten.png",
+    ],
+    category: "mobile",
+    technologies: ["Swift", "UIKit", "CoreData", "ExpressJS", "Figma", "Xcode"],
+    features: [
+      "Login & Register",
+      "Personalized Watchlist",
+      "Upcoming Release",
+      "Top Series",
+      "Daily Schedule",
+      "Seasonal Series",
+      "Search Series",
+      "Reading Manga",
+      "Favorite Series",
+    ],
+    challenges: [
+      "Integrating with external APIs (Mangedex) to fetch comprehensive and up-to-date anime and manga data, including series details, release dates, and cover art, while handling API rate limits and data inconsistencies.",
+      "Designing and implementing a robust database schema (using CoreData) to efficiently store and manage vast amounts of anime/manga data, user watchlists, reading progress, and preferences, ensuring quick retrieval and smooth user experience.",
+      "Developing a real-time synchronization mechanism for user data (watchlists, schedules) between the mobile application and the ExpressJS backend, ensuring data consistency across devices and enabling seamless offline access.",
+      "Creating an intuitive and dynamic user interface with UIKit that effectively presents complex information like daily schedules, seasonal series, and top series, allowing for easy navigation and personalized content discovery.",
+      "Implementing robust authentication and authorization for user accounts (Login & Register) to secure personal data and ensure only authorized users can access and modify their watchlists and preferences.",
+    ],
+    duration: "2 weeks",
+    role: "Flutter Developer",
+    links: {
+      live: "https://drive.usercontent.google.com/download?id=1gZuJeEvEgsuOzGMbOO1PnZzVGmj0L4oS&export=download&authuser=0&confirm=t&uuid=afca3ed3-0895-4839-99fd-b78a09e1da61&at=APZUnTU1FIyWWCjF9DrrFZojzEr-:1694255056278",
+      github: "https://github.com/renova213/honkai_assistance",
+    },
   },
-  projects: [
-    {
-      title: "FitTracker Pro",
-      description: "A fitness tracking mobile app with workout plans, progress tracking and social features.",
-      longDescription: "FitTracker Pro is a comprehensive fitness application designed to help users achieve their health goals with personalized workout plans, detailed progress tracking, and an engaged community of fitness enthusiasts. The app integrates with health sensors to provide accurate metrics and real-time feedback on workouts.",
-      platform: "React Native & iOS",
-      technologies: ["React Native", "Swift", "Firebase", "HealthKit", "Redux"],
-      features: [
-        "Personalized workout recommendations",
-        "Real-time heart rate monitoring",
-        "Social sharing and challenges",
-        "Custom exercise tracking",
-        "Nutrition planning and macronutrient calculator"
-      ],
-      screenshotUrl: "https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300",
-      year: "2023",
-      role: "Lead Mobile Developer",
-      links: {
-        demo: "#",
-        github: "#",
-        appStore: "#"
-      }
+  {
+    id: "3",
+    title: "MyTelkomsel iOS App",
+    description:
+      "The official MyTelkomsel application for iOS, providing a comprehensive suite of features for managing Telkomsel mobile services.",
+    fullDescription:
+      "The MyTelkomsel iOS application allows users to easily manage their Telkomsel prepaid and postpaid numbers. Features include checking credit and data balance, purchasing packages, topping up credit, viewing billing statements, and accessing customer support. The app aims to provide a seamless and intuitive experience for all Telkomsel subscribers on iOS devices.",
+    image:
+      "https://assets.telkomsel.com/public/2024-06/HEAD-FEATURES-BANNER-WEB%20-%2027_0.png",
+    images: [
+      "https://assets.telkomsel.com/public/2024-06/HEAD-FEATURES-BANNER-WEB%20-%2027_0.png",
+      "https://assets.telkomsel.com/public/2024-06/HEAD-FEATURES-BANNER-WEB%20-%2027_0.png",
+    ],
+    category: "mobile",
+    technologies: [
+      "Swift",
+      "UIKit",
+      "RESTful API",
+      "Xcode",
+      "Figma",
+      "Firebase (for analytics/crash reporting)",
+    ],
+    features: [
+      "Veronika Chat (AI Customer Assistant)",
+      "Agent Chat (Live Human Support)",
+      "Ticket Reporting / Help Center Access",
+    ],
+    challenges: [
+      "Integrating and Consuming Real-time Chat APIs: Implementing robust and efficient API consumption for both Veronika (AI) and Agent (human) chats, ensuring real-time message delivery, handling diverse message types, and maintaining low latency for a smooth user experience.",
+      "Managing Chat State and User Experience: Developing a seamless chat UI/UX within the iOS app that effectively displays conversation history, handles typing indicators, manages message delivery statuses, and provides a clear transition between AI and live agent interactions.",
+      "Integrating with Ticketing/Help Center APIs: Consuming APIs for the ticket reporting and help center functionalities to allow users to submit issues, view ticket statuses, and access FAQs directly within the app, requiring careful handling of data submission and retrieval.",
+    ],
+    duration: "Ongoing (typical for large-scale enterprise apps)",
+    role: "iOS Developer / Mobile Application Developer",
+    links: {
+      live: "https://apps.apple.com/id/app/mytelkomsel/id651412430",
+      github: "",
     },
-    {
-      title: "TravelCompanion",
-      description: "An all-in-one travel app with itinerary planning, offline maps, and local recommendations.",
-      longDescription: "TravelCompanion is the ultimate travel planning tool that helps travelers explore new destinations with confidence. The app provides customized itineraries, offline map functionality, and curated local recommendations from trusted sources. It features a unique augmented reality mode to help navigate unfamiliar locations.",
-      platform: "Flutter",
-      technologies: ["Flutter", "Dart", "Google Maps API", "Firebase", "ARCore/ARKit"],
-      features: [
-        "Offline maps and navigation",
-        "AI-powered itinerary suggestions",
-        "Language translation with camera",
-        "Local tours and activities booking",
-        "Augmented reality point-of-interest finder"
-      ],
-      screenshotUrl: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300",
-      year: "2022",
-      role: "Senior Flutter Developer",
-      links: {
-        appStore: "#",
-        playStore: "#",
-        caseStudy: "#"
-      }
-    },
-    {
-      title: "CryptoTracker Pro",
-      description: "Real-time cryptocurrency tracking app with price alerts, portfolio management, and market news.",
-      longDescription: "CryptoTracker Pro provides real-time cryptocurrency market data, customizable price alerts, comprehensive portfolio tracking, and the latest market news. The app uses advanced analytics to help users make informed investment decisions with detailed price charts and historical performance data.",
-      platform: "React Native",
-      technologies: ["React Native", "TypeScript", "CoinGecko API", "Redux", "React Query"],
-      features: [
-        "Real-time price updates for 5000+ cryptocurrencies",
-        "Custom price alerts and notifications",
-        "Portfolio performance analytics",
-        "Market news and sentiment analysis",
-        "Advanced charting with technical indicators"
-      ],
-      screenshotUrl: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300",
-      year: "2021",
-      role: "Mobile Developer & UI Designer",
-      links: {
-        website: "#",
-        github: "#",
-        playStore: "#"
-      }
-    }
-  ],
-  contact: [
-    {
-      type: "email",
-      label: "hello@developer.com",
-      url: "mailto:hello@developer.com"
-    },
-    {
-      type: "linkedin",
-      label: "linkedin.com/in/developer",
-      url: "#"
-    },
-    {
-      type: "github",
-      label: "github.com/developer",
-      url: "#"
-    },
-    {
-      type: "twitter",
-      label: "@developer",
-      url: "#"
-    }
-  ]
-};
+  },
+];
+
+export const skills: Skill[] = [
+  { name: "JavaScript/TypeScript", percentage: 95 },
+  { name: "React/Next.js", percentage: 90 },
+  { name: "Node.js/Express", percentage: 85 },
+  { name: "Python/Django", percentage: 80 },
+  { name: "Database Design", percentage: 88 },
+  { name: "Cloud Platforms", percentage: 75 },
+];
+
+export const socialLinks: SocialLink[] = [
+  { name: "GitHub", url: "https://github.com/renova213", icon: "github" },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/rizcorenova",
+    icon: "facebook",
+  },
+];
+
+export const developmentTools = [
+  {
+    name: "VS Code",
+    description: "Code editor",
+  },
+  {
+    name: "Xcode",
+    description: "Apple IDE",
+  },
+  {
+    name: "Android Studio",
+    description: "Android IDE",
+  },
+  {
+    name: "Git",
+    description: "Version control",
+  },
+  {
+    name: "GitHub / GitLab",
+    description: "Code hosting",
+  },
+  {
+    name: "Postman",
+    description: "API testing",
+  },
+  {
+    name: "Dart DevTools",
+    description: "Flutter debugger",
+  },
+  {
+    name: "Figma",
+    description: "Design tools",
+  },
+];

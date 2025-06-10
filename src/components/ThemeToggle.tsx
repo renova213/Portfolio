@@ -1,21 +1,22 @@
-import React from 'react';
+import { usePortfolioStore } from '../store/usePortfolioStore';
 import { Moon, Sun } from 'lucide-react';
-import { useThemeStore } from '@/contexts/ThemeContext';
 
-export default function ThemeToggle() {
-  const { theme, toggleTheme } = useThemeStore();
-  
+const ThemeToggle = () => {
+  const { isDark, toggleTheme } = usePortfolioStore();
+
   return (
     <button
       onClick={toggleTheme}
-      className="p-1 rounded-md hover:bg-gray-700 transition-colors"
-      title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="p-2 rounded-lg glass hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+      aria-label="Toggle theme"
     >
-      {theme === 'dark' ? (
-        <Moon size={16} className="text-terminal-yellow" />
+      {isDark ? (
+        <Sun className="h-5 w-5 text-yellow-400" />
       ) : (
-        <Sun size={16} className="text-terminal-yellow" />
+        <Moon className="h-5 w-5 text-gray-600" />
       )}
     </button>
   );
-}
+};
+
+export default ThemeToggle;
