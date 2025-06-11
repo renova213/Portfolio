@@ -73,12 +73,9 @@ const SkillsSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-center space-x-3 p-3 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="w-full min-w-0 p-3 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
-                  <span
-                    className="font-medium text-center
-                         text-white"
-                  >
+                  <span className="block w-full font-medium text-center text-white break-words whitespace-normal">
                     {tech.name}
                   </span>
                 </motion.div>
@@ -106,12 +103,12 @@ const SkillsSection = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center p-4 bg-white dark:bg-gray-700 rounded-xl hover:shadow-lg transition-shadow duration-300"
+                  className="w-full text-center p-4 bg-white dark:bg-gray-700 rounded-xl hover:shadow-lg transition-shadow duration-300"
                 >
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                  <h4 className="font-semibold text-gray-900 dark:text-white break-words whitespace-normal">
                     {tool.name}
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <p className="text-sm text-gray-600 dark:text-gray-300 break-words whitespace-normal">
                     {tool.description}
                   </p>
                 </motion.div>
