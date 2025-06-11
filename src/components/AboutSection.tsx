@@ -36,20 +36,10 @@ const AboutSection = () => {
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-lg">
               With 2 years of experience in mobile development, I specialize in
-              building seamless and high-quality applications using Swift and
-              Flutter. What started as a curiosity about how mobile apps are
-              made has grown into a deep passion for creating impactful,
-              user-focused solutions. I take pride in writing clean,
-              maintainable code and developing smooth, reliable experiences
-              across both iOS and cross-platform environments.
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-              Outside of mobile development, I enjoy exploring new technologies,
-              and currently i am diving into website development with ReactJS
-              and Tailwind. I believe in continuous learning and strive to stay
-              updated with the latest trends in the tech industry. My goal is to
-              create applications that not only meet user needs but also provide
-              delightful experiences.
+              building seamless and high-quality applications using Flutter and
+              Swift . Outside of mobile development, I enjoy exploring new
+              technologies. Currently, I am diving into web development with
+              ReactJS and Tailwind.
             </p>
           </motion.div>
         </div>

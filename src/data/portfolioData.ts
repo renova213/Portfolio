@@ -38,14 +38,15 @@ export const projects: Project[] = [
     fullDescription:
       "HonkaiAssistance is a game companion app to help you understand more about honkai impact 3. It provides detailed information about characters, weapons, and battlesuits, along with a user-friendly interface for easy navigation. The app includes features like character builds, weapon stats, and battle strategies to enhance the gaming experience.",
     image:
-      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/aGFsYW1hbl91dGFtYV9paHJzZjA=/preview",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2Fhalaman_utama_ihrsf0.png?alt=media&token=900549e4-259a-4b8a-b384-c179799e739a",
     images: [
-      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/aGFsYW1hbl91dGFtYV9paHJzZjA=/preview",
-      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/dGllcl9saXN0X3o2M2oyNA==/preview",
-      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/aW5mb3JtYXNpX3N0aWdtYXRhX2Z0Z292Yg==/preview",
-      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/bWVudV9wYW5kdWFuX25wY3FjMg==/preview",
-      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570529/aW5mb3JtYXNpX2thcmFrdGVyX2o0MWp6ZQ==/preview",
-      "https://res-console.cloudinary.com/dpcofvn9b/thumbnails/v1/image/upload/v1749570530/aW5mb3JtYXNpX2VsZl96NnRuZHQ=/preview",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2Fhalaman_utama_ihrsf0.png?alt=media&token=900549e4-259a-4b8a-b384-c179799e739a",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2Fhalaman_utama_ihrsf0.png?alt=media&token=900549e4-259a-4b8a-b384-c179799e739a",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2Finformasi_elf_z6tndt.png?alt=media&token=e121ef51-1637-4599-83bc-5b15f3227aae",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2Finformasi_karakter_j41jze.png?alt=media&token=c4e1fea2-19f7-4a72-aa89-3d466144cb5d",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2Finformasi_stigmata_ftgovb.jpg?alt=media&token=d2354fcf-3538-4033-90c0-00b6869d053e",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2Fmenu_panduan_npcqc2.png?alt=media&token=addd4315-15ce-4445-9f32-6e0cbd9e4761",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2Ftier_list_z63j24.png?alt=media&token=d093996e-8bd6-4ca3-8d90-3691a1bb52dc",
     ],
     category: "mobile",
     technologies: ["Flutter", "Dart", "Firebase", "Figma", "VSCode"],
@@ -102,10 +103,11 @@ export const projects: Project[] = [
       "Implementing robust authentication and authorization for user accounts (Login & Register) to secure personal data and ensure only authorized users can access and modify their watchlists and preferences.",
     ],
     duration: "2 weeks",
-    role: "Flutter Developer",
+    role: "iOS Developer Trainee",
     links: {
-      live: "https://drive.usercontent.google.com/download?id=1gZuJeEvEgsuOzGMbOO1PnZzVGmj0L4oS&export=download&authuser=0&confirm=t&uuid=afca3ed3-0895-4839-99fd-b78a09e1da61&at=APZUnTU1FIyWWCjF9DrrFZojzEr-:1694255056278",
-      github: "https://github.com/renova213/honkai_assistance",
+      live: "",
+      github:
+        "https://github.com/renova213/bootcamp-swift-phincon-batch-3/tree/main/week_3-4/AnimeList/AnimeList",
     },
   },
   {
@@ -140,10 +142,80 @@ export const projects: Project[] = [
       "Managing Chat State and User Experience: Developing a seamless chat UI/UX within the iOS app that effectively displays conversation history, handles typing indicators, manages message delivery statuses, and provides a clear transition between AI and live agent interactions.",
       "Integrating with Ticketing/Help Center APIs: Consuming APIs for the ticket reporting and help center functionalities to allow users to submit issues, view ticket statuses, and access FAQs directly within the app, requiring careful handling of data submission and retrieval.",
     ],
-    duration: "Ongoing (typical for large-scale enterprise apps)",
+    duration: "1 Year 3 months",
     role: "iOS Developer / Mobile Application Developer",
     links: {
       live: "https://apps.apple.com/id/app/mytelkomsel/id651412430",
+      github: "",
+    },
+  },
+  {
+    id: "4",
+    title: "Padu",
+    description:
+      "Padu is a messaging application equipped with calling and video calling features, designed to provide a seamless communication experience.",
+    fullDescription:
+      "Padu is a messaging application equipped with calling and video calling features, designed to provide a seamless communication experience. It allows users to chat, make voice calls, and conduct video calls with friends and family. The app focuses on user-friendly design and efficient performance, ensuring that users can connect with others easily and reliably.",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2FSplash.png?alt=media&token=4412029b-e788-4eca-91cb-6aa2fc11b019",
+    images: [
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2FSplash.png?alt=media&token=4412029b-e788-4eca-91cb-6aa2fc11b019",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2FSplash.png?alt=media&token=4412029b-e788-4eca-91cb-6aa2fc11b019",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2FCalling.png?alt=media&token=bc728a99-6b1b-4a68-a207-9eb29af0cbaa",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2FChat.png?alt=media&token=2ede7895-b087-4a06-9b75-1714c5e966be",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2FProfile%20Setting.png?alt=media&token=7f8e3c77-dce6-4c78-9399-fac4efb2a9cb",
+    ],
+    category: "mobile",
+    technologies: [
+      "Swift",
+      "UIKit",
+      "Flutter",
+      "Xcode",
+      "Dart",
+      "Figma",
+      "Firebase (for analytics/crash reporting)",
+    ],
+    features: ["Chat", "Voice Call", "Video Call"],
+    challenges: [
+      "Integrating with Voice and Video Calling with Zegocloud: Implementing real-time voice and video calling features using Zegocloud's APIs, ensuring low latency, high quality, and reliable connections for users during calls.",
+      "Integrating with Chat Engine Zegocloud: Developing a robust chat engine using Zegocloud's APIs to handle real-time messaging, including features like message delivery status, typing indicators, and media sharing, while ensuring data consistency and synchronization across devices.",
+      "Integrating with User Profile APIs: Developing a user profile page that allows users to view their profile details, edit their settings, and access their chat history, requiring careful handling of data submission and retrieval.",
+    ],
+    duration: "4 months",
+    role: "Flutter Developer",
+    links: {
+      live: "",
+      github: "",
+    },
+  },
+  {
+    id: "5",
+    title: "Raise Call",
+    description: "Raise Call is an omnichannel CRM and ticketing application.",
+    fullDescription:
+      "Raise Call is an omnichannel CRM and ticketing application.",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2FScreenshot%202025-06-11%20at%2009.06.49.png?alt=media&token=22e553df-e3b6-4ae9-aa66-9b59f8f28a43",
+    images: [
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2FScreenshot%202025-06-11%20at%2009.06.49.png?alt=media&token=22e553df-e3b6-4ae9-aa66-9b59f8f28a43",
+      "https://firebasestorage.googleapis.com/v0/b/honkaiassistance.appspot.com/o/files%2FScreenshot%202025-06-11%20at%2009.06.49.png?alt=media&token=22e553df-e3b6-4ae9-aa66-9b59f8f28a43",
+    ],
+    category: "web",
+    technologies: ["React", "Axios", "HTML", "CSS", "Javascript"],
+    features: [
+      "Omnichannel CRM and ticketing application",
+      "Supports agents in managing customer interactions via browser without app installation",
+      "Ensures smooth communication, data validation, and ticket monitoring from desktop or laptop devices at any time",
+    ],
+    challenges: [
+      "Implementing a responsive and consistent user interface with the mobile version across various screen sizes and devices",
+      "Integrating real-time data (e.g., ticket updates or customer chats) with optimal performance using WebSocket or polling",
+      "Maintaining user session security and data validation when interacting with the CRM and ticketing system",
+    ],
+    duration: "1 months",
+    role: "Frontend Developer",
+    links: {
+      live: "",
       github: "",
     },
   },
