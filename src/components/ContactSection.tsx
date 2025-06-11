@@ -53,7 +53,7 @@ const ContactSection = () => {
               Let's Connect
             </h3>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="h-6 w-6 text-white" />
@@ -68,16 +68,6 @@ const ContactSection = () => {
 
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                  Phone
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300">085210201782</p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
@@ -88,18 +78,20 @@ const ContactSection = () => {
             </div>
 
             <div className="text-center pt-8 border-t border-gray-200 dark:border-gray-700">
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-6">
-                Follow Me
-              </h4>
               <div className="flex justify-center space-x-4">
                 {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:shadow-lg transform hover:scale-110 transition-all duration-300"
-                  >
-                    {getSocialIcon(social.icon)}
-                  </a>
+                  <div className="flex flex-col items-center">
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:shadow-lg transform hover:scale-110 transition-all duration-300"
+                    >
+                      {getSocialIcon(social.icon)}
+                    </a>
+                    <p className="font-semibold dark:text-white pt-2">
+                      {social.name}
+                    </p>
+                  </div>
                 ))}
               </div>
             </div>
